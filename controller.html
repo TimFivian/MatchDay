@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MatchDay Controller</title>
+<link rel="stylesheet" href="controller.css">
+</head>
+
+<body>
+
+<!-- MATCH SETUP -->
+
+<div id="setupScreen" class="container">
+
+<h1>Match Setup</h1>
+
+<div class="box">
+
+<div class="field">
+<label>Liga</label>
+<select id="leagueSelect"></select>
+</div>
+
+<div class="field">
+<label>Heimteam</label>
+<select id="homeTeamSelect"></select>
+</div>
+
+<div class="field">
+<label>Gastteam</label>
+<select id="awayTeamSelect"></select>
+</div>
+
+<button onclick="startMatch()">Spiel starten</button>
+
+</div>
+
+</div>
+
+<!-- CONTROLLER -->
+
+<div id="controllerScreen" class="container" style="display:none">
+
+<h1>Match Controller</h1>
+
+<div class="box">
+
+<div class="clock" id="liveClock">20:00</div>
+<div class="score" id="liveScore">0 : 0</div>
+
+<button onclick="startClock()">Start</button> <button onclick="pauseClock()">Pause</button> <button onclick="resetClock()">Reset</button>
+
+<hr>
+
+<button onclick="score('home',1)">Tor +1 Heim</button> <button onclick="score('home',-1)">Tor -1 Heim</button>
+
+<button onclick="score('away',1)">Tor +1 Gast</button> <button onclick="score('away',-1)">Tor -1 Gast</button>
+
+</div>
+
+</div>
+
+<script src="controller.js"></script>
+
+</body>
+</html>
