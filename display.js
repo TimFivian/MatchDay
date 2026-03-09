@@ -1,39 +1,105 @@
 function updateDisplay(){
 
 const data=localStorage.getItem("game")
-if(!data) return
+
+if(!data)return
 
 const game=JSON.parse(data)
 
-document.getElementById("homeScore").textContent=game.homeScore
-document.getElementById("awayScore").textContent=game.awayScore
-document.getElementById("clock").textContent=formatTime(game.clock)
-document.getElementById("period").textContent=game.period
+homeScore.textContent=game.homeScore
+awayScore.textContent=game.awayScore
 
-document.getElementById("homeName").textContent=game.homeTeam
-document.getElementById("awayName").textContent=game.awayTeam
+clock.textContent=formatTime(game.clock)
 
-renderPenalties(game)
-showTimeout(game)
-renderPowerplay(game)
+period.textContent="PERIOD "+game.period
+
+homeLogo.src=game.homeLogo
+awayLogo.src=game.awayLogo
+
+homeName.textContent=game.homeTeam
+awayName.textContent=game.awayTeam
+
+updatePenalties("home",game.penaltiesHome)
+updatePenalties("away",game.penaltiesAway)
+
+if(game.timeout){
+
+timeoutDisplay.textContent="TIMEOUT "+game.timeout.toUpperCase()
+
+}else{
+
+timeoutDisplay.textContent=""
 
 }
 
-function renderPenalties(game){
+if(game.breakTime>0){
 
-const homeBox=document.getElementById("homePenalties")
-const awayBox=document.getElementById("awayPenalties")
+breakDisplay.textContent="PAUSE "+formatTime(game.breakTime)
 
-homeBox.innerHTML=""
-awayBox.innerHTML=""
+}else{
 
-game.penalties.home.forEach(p=>{
-homeBox.innerHTML+=`<div class="penalty">#${p.player} ${formatTime(p.time)}</div>`
+breakDisplay.textContent=""
+
+}
+
+}
+
+function updatePenalties(team,penalties){
+
+const container=document.getElementById(team+"Penalties")
+
+container.innerHTML=""
+
+const rows={}
+
+penalties.forEach(p=>{
+
+if(!rows[p.number])rows[p.number]=[]
+
+rows[p.number].push(p)
+
 })
 
-game.penalties.away.forEach(p=>{
-awayBox.innerHTML+=`<div class="penalty">#${p.player} ${formatTime(p.time)}</div>`
+Object.values(rows).forEach(group=>{
+
+const row=document.createElement("div")
+row.className="penaltyRow"
+
+group.forEach(p=>{
+
+const div=document.createElement("div")
+div.className="penalty"
+
+if(p.time>0){
+
+div.textContent="#"+p.number+" "+formatTime(p.time)
+
+}else{
+
+div.textContent="#"+p.number
+
+}
+
+row.appendChild(div)
+
 })
+
+container.appendChild(row)
+
+})
+
+}
+
+function formatTime(seconds){
+
+const m=Math.floor(seconds/60)
+const s=seconds%60
+
+return m+":"+s.toString().padStart(2,"0")
+
+}
+
+setInterval(updateDisplay,300)
 
 }
 
