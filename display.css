@@ -16,9 +16,9 @@ align-items:center;
 .header{
 width:100%;
 display:grid;
-grid-template-columns: 1fr 2fr 1fr;
+grid-template-columns:1fr 2fr 1fr;
 align-items:center;
-padding:0 60px;
+padding:0 40px;
 }
 
 .team{
@@ -28,12 +28,52 @@ align-items:center;
 gap:10px;
 }
 
+.teamLogo{
+height:clamp(80px,10vh,160px);
+object-fit:contain;
+}
+
 .teamName{
 font-size:clamp(40px,4vw,90px);
 font-weight:bold;
 white-space:nowrap;
 }
 
+.score{
+font-size:clamp(120px,12vw,240px);
+font-weight:bold;
+}
+
+.center{
+text-align:center;
+}
+
+.clock{
+font-size:clamp(160px,20vw,420px);
+font-weight:bold;
+}
+
+.period{
+font-size:clamp(30px,3vw,70px);
+margin-bottom:20px;
+}
+
+.timeout{
+font-size:clamp(40px,4vw,120px);
+color:red;
+margin-bottom:20px;
+}
+
+.penaltyRow{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:10px;
+}
+
+.penalty{
+font-size:clamp(30px,3vw,70px);
+}
 .score{
 font-size:clamp(120px,12vw,240px);
 font-weight:bold;
