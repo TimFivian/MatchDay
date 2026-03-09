@@ -3,13 +3,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MatchDay Controller</title>
+<title>Match Controller</title>
 <link rel="stylesheet" href="controller.css">
 </head>
 
 <body>
-
-<!-- MATCH SETUP -->
 
 <div id="setupScreen" class="container">
 
@@ -25,11 +23,13 @@
 <div class="field">
 <label>Heimteam</label>
 <select id="homeTeamSelect"></select>
+<img id="homeLogoPreview" class="logoPreview">
 </div>
 
 <div class="field">
 <label>Gastteam</label>
 <select id="awayTeamSelect"></select>
+<img id="awayLogoPreview" class="logoPreview">
 </div>
 
 <button onclick="startMatch()">Spiel starten</button>
@@ -38,8 +38,6 @@
 
 </div>
 
-<!-- CONTROLLER -->
-
 <div id="controllerScreen" class="container" style="display:none">
 
 <h1>Match Controller</h1>
@@ -47,6 +45,7 @@
 <div class="box">
 
 <div class="clock" id="liveClock">20:00</div>
+
 <div class="score" id="liveScore">0 : 0</div>
 
 <button onclick="startClock()">Start</button> <button onclick="pauseClock()">Pause</button> <button onclick="resetClock()">Reset</button>
@@ -59,6 +58,12 @@
 
 </div>
 
+</div>
+
+<script src="controller.js"></script>
+
+</body>
+</html>
 </div>
 
 <script src="controller.js"></script>
