@@ -2,10 +2,8 @@ body{
 margin:0;
 background:black;
 color:white;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
-
-/* Hauptlayout */
 
 .scoreboard{
 width:100%;
@@ -15,8 +13,6 @@ justify-content:center;
 align-items:center;
 }
 
-/* Grid Layout */
-
 .header{
 width:100%;
 display:grid;
@@ -25,85 +21,54 @@ align-items:center;
 padding:0 60px;
 }
 
-/* Teamblöcke */
-
 .team{
 display:flex;
 flex-direction:column;
-justify-content:flex-start;
+align-items:center;
 gap:10px;
 }
 
-.home{
-text-align:left;
-}
-
-.away{
-text-align:right;
-}
-
-/* Teamnamen */
-
 .teamName{
-font-size:90px;
+font-size:clamp(40px,4vw,90px);
 font-weight:bold;
 white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
 }
 
-/* Score */
-
 .score{
-font-size:240px;
+font-size:clamp(120px,12vw,240px);
 font-weight:bold;
 }
 
-/* Strafen */
-
-.penalties{
-margin-top:20px;
+.teamLogo{
+height:clamp(80px,10vh,160px);
+object-fit:contain;
 }
 
 .penalty{
-font-size:80px;
-margin-top:10px;
+font-size:clamp(40px,4vw,80px);
 }
-
-/* Powerplay Balken */
 
 .powerplayBar{
-height:25px;
-width:350px;
-background:#FFD700;
-margin-top:20px;
+height:20px;
+width:200px;
+background:yellow;
 display:none;
 }
-
-/* Center Bereich */
 
 .center{
 text-align:center;
 }
 
-/* Period */
+.clock{
+font-size:clamp(150px,20vw,420px);
+font-weight:bold;
+}
 
 .period{
-font-size:70px;
-margin-bottom:20px;
+font-size:clamp(30px,3vw,70px);
 }
-
-/* Timeout / Pause */
 
 .timeout{
-font-size:110px;
+font-size:clamp(40px,4vw,120px);
 color:red;
-margin-bottom:20px;
-}
-
-/* Spielzeit */
-
-.clock{
-font-size:380px;
-font-weight:bold;
 }
