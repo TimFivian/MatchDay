@@ -1,6 +1,8 @@
 const game = {
 homeTeam:"",
 awayTeam:"",
+homeLogo:"",
+awayLogo:"",
 homeScore:0,
 awayScore:0,
 clock:1200,
@@ -14,7 +16,6 @@ fetch("data/teams.json")
 .then(data=>{
 
 teamsData=data.teams
-
 initLeague()
 
 })
@@ -25,14 +26,11 @@ const leagues=[...new Set(teamsData.map(t=>t.league))]
 
 const leagueSelect=document.getElementById("leagueSelect")
 
-leagueSelect.innerHTML=""
-
 leagues.forEach(l=>{
 
 const opt=document.createElement("option")
 opt.value=l
 opt.textContent=l
-
 leagueSelect.appendChild(opt)
 
 })
@@ -71,12 +69,41 @@ awaySelect.appendChild(o2)
 
 })
 
+updateLogoPreview()
+
+homeSelect.addEventListener("change",updateLogoPreview)
+awaySelect.addEventListener("change",updateLogoPreview)
+
+}
+
+function updateLogoPreview(){
+
+const homeSelect=document.getElementById("homeTeamSelect")
+const awaySelect=document.getElementById("awayTeamSelect")
+
+const homeTeam=teamsData.find(t=>t.short===homeSelect.value)
+const awayTeam=teamsData.find(t=>t.short===awaySelect.value)
+
+if(homeTeam){
+document.getElementById("homeLogoPreview").src=homeTeam.logo
+}
+
+if(awayTeam){
+document.getElementById("awayLogoPreview").src=awayTeam.logo
+}
+
 }
 
 function startMatch(){
 
-game.homeTeam=document.getElementById("homeTeamSelect").value
-game.awayTeam=document.getElementById("awayTeamSelect").value
+const homeTeam=teamsData.find(t=>t.short===document.getElementById("homeTeamSelect").value)
+const awayTeam=teamsData.find(t=>t.short===document.getElementById("awayTeamSelect").value)
+
+game.homeTeam=homeTeam.short
+game.awayTeam=awayTeam.short
+
+game.homeLogo=homeTeam.logo
+game.awayLogo=awayTeam.logo
 
 document.getElementById("setupScreen").style.display="none"
 document.getElementById("controllerScreen").style.display="block"
