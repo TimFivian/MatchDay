@@ -10,7 +10,7 @@
 
 {
 "name":"HC Rychenberg Winterthur",
-"short":"Rychenberg",
+"short":"HC Rychenberg",
 "league":"NLA",
 "logo":"logos/rychenberg.png"
 },
@@ -25,45 +25,39 @@
 
 {
 "name":"Floorball Köniz Bern",
-"short":"Köniz",
+"short":"Floorball Köniz",
 "league":"NLA",
 "logo":"logos/koeniz.png"
 },
 
 {
 "name":"Tigers Langnau",
-"short":"Langnau",
+"short":"Tigers Langnau",
 "league":"NLA",
 "logo":"logos/langnau.png"
 },
 
 {
 "name":"UHC Uster",
-"short":"Uster",
+"short":"UHC Uster",
 "league":"NLA",
 "logo":"logos/uster.png"
 },
 
 {
 "name":"Floorball Thurgau",
-"short":"Thurgau",
+"short":"Floorball Thurgau",
 "league":"NLA",
 "logo":"logos/thurgau.png"
 },
 
 {
 "name":"UHC Alligator Malans",
-"short":"Malans",
+"short":"UHC Malans",
 "league":"NLA",
 "logo":"logos/malans.png"
 },
 
-{
-"name":"Grasshopper Club Zürich",
-"short":"GC Zürich",
-"league":"NLA",
-"logo":"logos/gc.png"
-},
 
 {
 "name":"UHC WaSa St. Gallen",
@@ -74,7 +68,7 @@
 
 {
 "name":"Floorball Fribourg",
-"short":"Fribourg",
+"short":"Floorball Fribourg",
 "league":"NLA",
 "logo":"logos/fribourg.png"
 }
